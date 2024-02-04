@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import css from "./SearchBar.module.css";
 
 export const SearchBar = ({ onSearch }) => {
   const handleSubmit = (event) => {
@@ -12,16 +13,19 @@ export const SearchBar = ({ onSearch }) => {
     event.target.reset();
   };
   return (
-    <header>
+    <header className={css.hederStyle}>
       <form onSubmit={handleSubmit}>
         <input
+          className={css.inpyteStyle}
           type="text"
           name="query"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
         />
-        <button type="submit">Search</button>
+        <button className={css.buttonStyle} type="submit">
+          Search
+        </button>
       </form>
     </header>
   );

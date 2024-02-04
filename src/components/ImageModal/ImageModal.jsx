@@ -1,23 +1,31 @@
 import Modal from "react-modal";
-import css from "./ImageModul.module.css";
 
-export const ImageModal = ({ image, isOpen, closeModal }) => {
+// import React from "react";
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+Modal.setAppElement("#root");
+export const ImageModal = ({
+  image,
+  alt_description,
+  modalIsOpen,
+  closeModal,
+}) => {
   return (
     <Modal
-      className={css.styleModal}
-      isOpen={isOpen}
+      isOpen={modalIsOpen}
       onRequestClose={closeModal}
-      contentLabel="Image Modal"
-      shouldCloseOnOverlayClick={true}
-      shouldCloseOnEsc={true}
+      style={customStyles}
+      contentLabel="Example Modal"
     >
-      {image && (
-        <img
-          src={image.urls.regular}
-          alt={`Selected Image`}
-          style={{ width: "100%", height: "100%", objectFit: "contain" }}
-        />
-      )}
+      <img src={image} alt={alt_description} />
     </Modal>
   );
 };
